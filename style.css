@@ -1,0 +1,232 @@
+/* ==========================================================================
+   1. VARIÁVEIS E BASE
+   ========================================================================== */
+:root {
+  --bg-main: #f4f7f6;
+  --card-bg: #ffffff;
+  --text-main: #1a1a2e;
+  --text-muted: #4a4a68;
+  --primary: #0056b3;
+  --primary-hover: #003d80;
+  --accent: #d93800;
+  --border-color: #cbd5e1;
+  --focus-ring: #00ffff;
+  
+  --font-stack: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --base-font-size: 100%;
+}
+
+/* Modo Alto Contraste Extremo */
+body.high-contrast {
+  --bg-main: #000000 !important;
+  --card-bg: #111111 !important;
+  --text-main: #ffff00 !important;
+  --text-muted: #ffffff !important;
+  --primary: #00ffff !important;
+  --primary-hover: #ffffff !important;
+  --border-color: #ffff00 !important;
+  --focus-ring: #ffffff !important;
+}
+
+body.high-contrast button {
+  background-color: #ffff00 !important;
+  color: #000000 !important;
+  border: 2px solid #ffffff !important;
+}
+
+html {
+  font-size: var(--base-font-size);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  font-family: var(--font-stack);
+  line-height: 1.7;
+  padding-bottom: 3rem;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* ==========================================================================
+   2. NAVEGAÇÃO E ACESSIBILIDADE
+   ========================================================================== */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  background: #000;
+  color: #fff;
+  padding: 0.75rem 1.25rem;
+  font-weight: bold;
+  z-index: 9999;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+:focus-visible {
+  outline: 4px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.a11y-bar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: var(--card-bg);
+  border-bottom: 3px solid var(--primary);
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.controls-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.btn {
+  background-color: var(--primary);
+  color: #ffffff;
+  border: none;
+  padding: 0.6rem 1rem;
+  font-size: 0.95rem;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: background-color 0.2s;
+}
+
+.btn:hover {
+  background-color: var(--primary-hover);
+}
+
+.btn-secondary {
+  background-color: #2e7d32;
+}
+
+.btn-secondary:hover {
+  background-color: #1b5e20;
+}
+
+/* ==========================================================================
+   3. ESTRUTURA E CARDS
+   ========================================================================== */
+header {
+  text-align: center;
+  padding: 3rem 1.5rem 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--primary);
+}
+
+body.high-contrast header h1 {
+  color: var(--text-main);
+}
+
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.card {
+  background-color: var(--card-bg);
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+}
+
+.card h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 0.5rem;
+}
+
+.card p {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+/* ==========================================================================
+   4. LUPA VIRTUAL FLUTUANTE
+   ========================================================================== */
+.magnifying-glass {
+  position: fixed;
+  border: 3px solid var(--primary);
+  border-radius: 50%;
+  cursor: none;
+  width: 150px;
+  height: 150px;
+  pointer-events: none;
+  display: none;
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+  z-index: 9999;
+}
+
+body.magnifier-enabled .readable-zone {
+  cursor: crosshair;
+}
+
+/* ==========================================================================
+   5. FORMULÁRIOS E AUDIO
+   ========================================================================== */
+.audio-player-box {
+  background-color: rgba(0, 86, 179, 0.08);
+  border-left: 5px solid var(--primary);
+  padding: 1.25rem;
+  border-radius: 6px;
+  margin: 1.5rem 0;
+}
+
+audio {
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.3rem;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 2px solid var(--border-color);
+  background: var(--card-bg);
+  color: var(--text-main);
+}
