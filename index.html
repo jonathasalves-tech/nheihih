@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal Acessível - Visão & Áudio</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <a href="#conteudo-principal" class="skip-link">Pular para o conteúdo principal</a>
+
+  <div id="lupa" class="magnifying-glass" aria-hidden="true"></div>
+
+  <nav class="a11y-bar" aria-label="Painel de Acessibilidade">
+    <strong>Painel Acessível:</strong>
+    
+    <div class="controls-group">
+      <button id="btn-increase" class="btn" type="button" title="Aumentar Fonte">A+</button>
+      <button id="btn-decrease" class="btn" type="button" title="Diminuir Fonte">A-</button>
+      <button id="btn-reset" class="btn" type="button" title="Tamanho Normal">A</button>
+
+      <button id="btn-contrast" class="btn" type="button" aria-pressed="false">Alto Contraste</button>
+      <button id="btn-lupa" class="btn" type="button" aria-pressed="false">Ativar Lupa</button>
+      <button id="btn-read" class="btn btn-secondary" type="button">🔊 Ouvir Página</button>
+    </div>
+  </nav>
+
+  <header>
+    <h1>Acessibilidade em Foco</h1>
+    <p>Projeto integrado com recursos para apoio à baixa visão, leitor de áudio e alta legibilidade.</p>
+  </header>
+
+  <main id="conteudo-principal" tabindex="-1">
+    
+    <article class="card readable-zone" id="secao1">
+      <h2>1. Inclusão Digital e Recursos Visuais</h2>
+      <p>
+        A acessibilidade na Web visa garantir que todos os usuários, independentemente de suas capacidades visuais, cognitivas ou motoras, consigam navegar com facilidade.
+      </p>
+      <p>
+        Através de ferramentas como a <strong>Lupa Virtual</strong> e os botões de <strong>Redimensionamento de Fonte</strong>, pessoas com baixa visão conseguem ler conteúdos sem esforço excessivo.
+      </p>
+      
+      <button class="btn btn-read-section" type="button" data-target="secao1">
+        🔊 Ouvir este trecho
+      </button>
+    </article>
+
+    <article class="card readable-zone" id="secao2">
+      <h2>2. Recursos de Áudio Nativo</h2>
+      <p>
+        Além do sintetizador de voz (Text-to-Speech) integrado acima, também podemos disponibilizar conteúdos gravados em áudio via reprodutor HTML5 padrão:
+      </p>
+
+      <div class="audio-player-box">
+        <label for="audio-exemplo"><strong>Exemplo de Narração em Áudio:</strong></label>
+        <audio id="audio-exemplo" controls>
+          <source src="https://www.w3schools.com/html/horse.mp3" type="audio/mpeg">
+          Seu navegador não suporta o elemento de áudio.
+        </audio>
+      </div>
+
+      <button class="btn btn-read-section" type="button" data-target="secao2">
+        🔊 Ouvir este trecho
+      </button>
+    </article>
+
+    <section class="card readable-zone" id="secao3">
+      <h2>3. Formulário Acessível</h2>
+      
+      <form id="form-contato">
+        <div class="form-group">
+          <label for="nome">Seu Nome:</label>
+          <input type="text" id="nome" name="nome" required>
+        </div>
+
+        <div class="form-group">
+          <label for="mensagem">Sua Mensagem:</label>
+          <textarea id="mensagem" name="mensagem" rows="4" required></textarea>
+        </div>
+
+        <button type="submit" class="btn">Enviar Mensagem</button>
+      </form>
+    </section>
+
+  </main>
+
+</body>
+</html>
